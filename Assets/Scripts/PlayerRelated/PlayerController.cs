@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -50,12 +51,23 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         character.Move(velocity * Time.deltaTime);
+
+        if (transform.position.y < -15)
+        {
+            Invoke("DestroyDistance", 2);
+        }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.gray;
         Gizmos.DrawWireSphere(foots.position, radius);
+    }
+
+    private void DestroyDistance()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Death");
     }
 
 
