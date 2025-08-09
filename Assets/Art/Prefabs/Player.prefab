@@ -393,5 +393,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseX: 0
   player: {fileID: 4168584519656412780}
-  sensibility: 500
+  sensibility: 250
   xRotation: 0
