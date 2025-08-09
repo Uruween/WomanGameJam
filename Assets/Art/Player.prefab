@@ -152,9 +152,10 @@ GameObject:
   - component: {fileID: 4168584519656412780}
   - component: {fileID: 1654960048893184240}
   - component: {fileID: 1179899148865523479}
+  - component: {fileID: 4846411219657243753}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,6 +228,19 @@ MonoBehaviour:
   foots: {fileID: 1501449719636573399}
   radius: 0.64
   jumpHeight: 0
+--- !u!114 &4846411219657243753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283360068297449651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17c796458e60284bb7adb424754942f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 2
 --- !u!1 &7853374084276516153
 GameObject:
   m_ObjectHideFlags: 0
