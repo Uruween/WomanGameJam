@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float radius;
     [SerializeField] int jumpHeight;
 
+    public bool isMovementEnabled;
+
 
     private void Awake()
     {
@@ -35,18 +37,20 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2;
         }
 
-
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (isMovementEnabled)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            }
+
+            horizontalAxis = Input.GetAxis("Horizontal");
+            verticalAxis = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * horizontalAxis + transform.forward * verticalAxis;
+
+            character.Move(move * speed * Time.deltaTime);
         }
-
-        horizontalAxis = Input.GetAxis("Horizontal");
-        verticalAxis = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * horizontalAxis + transform.forward * verticalAxis;
-
-        character.Move(move * speed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
 

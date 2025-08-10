@@ -6,20 +6,27 @@ public class DialogByTrigger : MonoBehaviour
     public TutorialDialog tutorialDialog;
     public DialogueLine dialogLine;
     [SerializeField] GameObject text;
+    [SerializeField] bool enablesPlayerMovementOnHide;
+    [SerializeField] PlayerController playerController;
+    [SerializeField] float timeBeforeHide = 4f;
 
     private bool wasAlreadyShown = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (wasAlreadyShown)
-            return;
-        wasAlreadyShown = true;
-        tutorialDialog.CustomLine(dialogLine);
-    }
+        if (!text.activeSelf)
+        {
+            text.SetActive(true);
+        }
+        else
+        {
+            if (wasAlreadyShown)
+                return;
+            wasAlreadyShown = true;
+            tutorialDialog.CustomLine(dialogLine);
+            Invoke("HideText", timeBeforeHide);
+        }
 
-    private void OnTriggerExit(Collider other)
-    {
-        Invoke("HideText", 4);
     }
 
     private void HideText()
@@ -28,5 +35,7 @@ public class DialogByTrigger : MonoBehaviour
         {
             text.SetActive(false);
         }
+        if (enablesPlayerMovementOnHide)
+            playerController.isMovementEnabled = true;
     }
 }
