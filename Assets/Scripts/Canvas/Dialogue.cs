@@ -9,15 +9,15 @@ public class TutorialDialog : MonoBehaviour
     [Header("Tutorial Components")]
     public GameObject tutorialCanvas;
     public GameObject characterContainer;
-    public GameObject additionalToDisable;
+    //public GameObject additionalToDisable;
 
     [Header("UI Components")]
     public TextMeshProUGUI dialogText;
 
 
-    [Header("Audio")]
-    public AudioClip talkClip; // Sonido por letra
-    public AudioSource bgMusic; // M sica de fondo del juego
+    //[Header("Audio")]
+    //public AudioClip talkClip; // Sonido por letra
+    //public AudioSource bgMusic; // M sica de fondo del juego
 
     [Header("Dialog Settings")]
     public DialogueLine[] dialogLines;
@@ -28,8 +28,8 @@ public class TutorialDialog : MonoBehaviour
 
     void Start()
     {
-        if (bgMusic != null)
-            bgMusic.Stop(); // Detiene m sica del juego
+        //if (bgMusic != null)
+        //    bgMusic.Stop(); // Detiene m sica del juego
 
         //ShowLine();
     }
@@ -53,12 +53,6 @@ public class TutorialDialog : MonoBehaviour
         foreach (char c in line)
         {
             dialogText.text += c;
-
-            if (talkClip != null)
-            {
-
-            }
-
             yield return new WaitForSeconds(typingSpeed);
         }
 
@@ -93,17 +87,14 @@ public class TutorialDialog : MonoBehaviour
 
     void EndTutorial()
     {
-        if (bgMusic != null)
-            bgMusic.Play(); // Reanuda m sica
+        //if (bgMusic != null)
+        //    bgMusic.Play(); // Reanuda m sica
 
         if (tutorialCanvas != null)
             tutorialCanvas.SetActive(false);
 
         if (characterContainer != null)
             characterContainer.SetActive(false);
-
-        if (additionalToDisable != null)
-            additionalToDisable.SetActive(false);
 
         gameObject.SetActive(false);
 

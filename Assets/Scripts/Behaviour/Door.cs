@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class Door : MonoBehaviour
     [SerializeField] float doorOpenAngle;
     [SerializeField] float doorCloseAngle;
     [SerializeField] float smooth;
+    [SerializeField] GameObject brillito;
+    [SerializeField] UnityEvent eventosAbierta;
 
     private void Update()
     {
@@ -24,5 +27,10 @@ public class Door : MonoBehaviour
     public void ChangeState()
     {
         doorOpen = !doorOpen;
+        eventosAbierta?.Invoke();
+    }
+    public void HabilitarBrillo(bool activado)
+    {
+        brillito?.SetActive(activado);
     }
 }

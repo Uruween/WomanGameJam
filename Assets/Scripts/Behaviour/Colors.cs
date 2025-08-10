@@ -6,7 +6,7 @@ public class Colors : MonoBehaviour
     [SerializeField] float distance;
     [SerializeField] GameObject image;
 
-
+    Door lastDoor;
     void Update()
     {
         RaycastHit hit;
@@ -14,13 +14,16 @@ public class Colors : MonoBehaviour
         {
             if (hit.collider.tag == "Door")
             {
+                lastDoor = hit.collider.transform.GetComponent<Door>();
+
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    hit.collider.transform.GetComponent<Door>().ChangeState();
+                    lastDoor.ChangeState();
                 }
 
                 if (hit.distance <= 2)
                 {
+                    lastDoor.HabilitarBrillo(true);
                     image.SetActive(true);
                 }
             }
@@ -29,6 +32,12 @@ public class Colors : MonoBehaviour
         {
             if (image.activeSelf)
             {
+                if (lastDoor)
+                {
+                    lastDoor.HabilitarBrillo(false);
+                    lastDoor = null;
+                }
+
                 image.SetActive(false);
             }
         }
