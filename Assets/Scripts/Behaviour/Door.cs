@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
 
     private void Update()
     {
-        if (doorOpen )
+        if (doorOpen)
         {
             Quaternion _targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
             transform.localRotation = Quaternion.Slerp(transform.localRotation, _targetRotation, smooth * Time.deltaTime);
