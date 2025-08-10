@@ -4,23 +4,26 @@ using UnityEngine.Events;
 public class Door : MonoBehaviour
 {
     [SerializeField] bool doorOpen = false;
-    [SerializeField] float doorOpenAngle;
-    [SerializeField] float doorCloseAngle;
+    [SerializeField] Transform doorOpenAngle;
+    [SerializeField] Transform doorCloseAngle;
     [SerializeField] float smooth;
     [SerializeField] GameObject brillito;
     [SerializeField] UnityEvent eventosAbierta;
 
+    private void Awake()
+    {
+        doorOpenAngle.SetParent(null);
+        doorCloseAngle.SetParent(null);
+    }
     private void Update()
     {
         if (doorOpen)
         {
-            Quaternion _targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, _targetRotation, smooth * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, doorOpenAngle.rotation, smooth * Time.deltaTime);
         }
         else
         {
-            Quaternion _targetRotation2 = Quaternion.Euler(0, doorCloseAngle, 0);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, _targetRotation2, smooth * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, doorCloseAngle.rotation, smooth * Time.deltaTime);
         }
     }
 
