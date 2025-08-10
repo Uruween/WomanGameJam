@@ -14,18 +14,14 @@ public class DialogByTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!text.activeSelf)
-        {
-            text.SetActive(true);
-        }
-        else
-        {
-            if (wasAlreadyShown)
-                return;
-            wasAlreadyShown = true;
-            tutorialDialog.CustomLine(dialogLine);
-            Invoke("HideText", timeBeforeHide);
-        }
+
+        text.SetActive(true);
+
+        if (wasAlreadyShown)
+            return;
+        wasAlreadyShown = true;
+        tutorialDialog.CustomLine(dialogLine);
+        Invoke("HideText", timeBeforeHide);
 
     }
 
