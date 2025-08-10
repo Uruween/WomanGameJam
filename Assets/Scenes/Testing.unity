@@ -1847,6 +1847,76 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6283360068297449651, guid: 153bc21e9b1f7764bb72f38c4529c10d, type: 3}
   m_PrefabInstance: {fileID: 2176572438804014833}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5533375659793290738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.396
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528244254419707397, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5550817993352831972, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 231314081}
+    - target: {fileID: 5550817993352831972, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: tutorialDialog
+      value: 
+      objectReference: {fileID: 1768436694}
+    - target: {fileID: 5550817993352831972, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: dialogLine.text
+      value: "\xBFA que te refieres con que esta no es la misma habitaci\xF3n?, seguro
+        tienes algo de sue\xF1o, no te preocupes, nos pasa a todos"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967331693832438128, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
+      propertyPath: m_Name
+      value: TriggerAndDialogue
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 157b34be0f66f544f8f50dfabebc517c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1862,4 +1932,5 @@ SceneRoots:
   - {fileID: 1787635218}
   - {fileID: 1866205012}
   - {fileID: 1503505455}
+  - {fileID: 5533375659793290738}
   - {fileID: 810216378}
