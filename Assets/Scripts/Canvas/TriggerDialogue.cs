@@ -19,10 +19,14 @@ public class DialogByTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && wasAlreadyShown)
+        Invoke("HideText", 4);
+    }
+
+    private void HideText()
+    {
+        if (wasAlreadyShown)
         {
             text.SetActive(false);
         }
-
     }
 }
