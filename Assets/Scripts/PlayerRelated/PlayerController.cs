@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float horizontalAxis;
     [SerializeField] float verticalAxis;
     [SerializeField] float speed;
-    [SerializeField] CharacterController character;
+    //[SerializeField] CharacterController character;
     [SerializeField] float gravity = -9.81f;
     [SerializeField] Vector3 velocity;
     [SerializeField] bool isGrounded;
@@ -17,10 +17,13 @@ public class PlayerController : MonoBehaviour
 
     public bool isMovementEnabled;
 
+    [SerializeField] Rigidbody rigid;
+
 
     private void Awake()
     {
-        character = GetComponent<CharacterController>();
+        //character = GetComponent<CharacterController>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     private void Start()
@@ -47,14 +50,24 @@ public class PlayerController : MonoBehaviour
             horizontalAxis = Input.GetAxis("Horizontal");
             verticalAxis = Input.GetAxis("Vertical");
 
-            Vector3 move = transform.right * horizontalAxis + transform.forward * verticalAxis;
+            Vector3 direction = (transform.forward * verticalAxis) + (transform.right * horizontalAxis);
+            direction.Normalize(); // Normaliza para que la velocidad sea constante en diagonales
 
-            character.Move(move * speed * Time.deltaTime);
+            // Aplicar la velocidad manteniendo la componente Y (gravedad/salto)
+            rigid.linearVelocity = new Vector3(
+                direction.x* speed,
+                rigid.linearVelocity.y,
+                direction.z* speed
+            );
+            //character.Move(move * speed * Time.deltaTime);
         }
 
         velocity.y += gravity * Time.deltaTime;
 
-        character.Move(velocity * Time.deltaTime);
+        //Vector3 direction = transform.forward;
+        //rigid.linearVelocity = new Vector3(direction.x, rigid.linearVelocity.y, direction.y);
+
+        //character.Move(velocity * Time.deltaTime);
 
         if (transform.position.y < -15)
         {
